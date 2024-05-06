@@ -7,6 +7,15 @@
 body{
   width: 100vw;
   overflow-x: hidden;
-  background: #f1f1f1;
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   height: auto;
+}
+
+@layer{
+  .auth-section {
+    @apply w-full h-screen lg:max-h-screen overflow-hidden flex flex-col items-start justify-start px-6 py-4 gap-6;
+  }
+}
+.shadow-custom {
+  box-shadow: 0px 4px 6px -1px rgba(249, 240, 236, 0.1), 0px 2px 4px -1px rgba(249, 240, 236, 0.06);
 }

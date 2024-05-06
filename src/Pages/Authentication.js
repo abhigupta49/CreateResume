@@ -1,9 +1,18 @@
 import React from 'react'
+import Topheader from './Topheader';
+import Middleheader from './Middleheader';
+import Landingpage from './Landingpage';
+import Footer from './Footer'
 
-SwiperCore.use([Pagination]);
+
 const Authentication = () => {
     return (
-        <div></div>
+        <div >
+            <Topheader />
+            <Middleheader />
+            <Landingpage />
+            <Footer />
+        </div>
     );
 }
 
