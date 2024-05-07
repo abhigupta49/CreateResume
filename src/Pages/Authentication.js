@@ -8,8 +8,6 @@ import Footer from './Footer'
 const Authentication = () => {
     return (
         <div >
-            <Topheader />
-            <Middleheader />
             <Landingpage />
             <Footer />
         </div>

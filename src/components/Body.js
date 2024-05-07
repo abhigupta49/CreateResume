@@ -1,25 +1,52 @@
 import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Outlet, createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Landingpage from '../Pages/Landingpage'
 import Authentication from '../Pages/Authentication'
-const Body = () => {
+import Middleheader from '../Pages/Middleheader'
+import Topheader from '../Pages/Topheader'
+import Home from '../Pages/Home'
 
+const Body = () => {
+    const AppLayout = () =>{
+        return(
+            
+            <div>
+                <Topheader />
+                <Middleheader />
+                
+                <Outlet />
+            </div>
+            
+        )
+    }
     const appRouter = createBrowserRouter([
         {
-            path: "/*",
-            element: <Landingpage />
-        },
-        {
-            path: "auth",
-            element: <Authentication />
+            path:"/",
+            element: <AppLayout />,
+            children:[
+                {
+                    path: "/",
+                    element: <Authentication />
+                },
+                {
+                    path: "/*",
+                    element: <Authentication />
+                },
+                {
+                    path: "/home",
+                    element: <Home />
+                },
+                {
+                    path: "/auth",
+                    element: <Authentication />
+                }
+            ]
         }
     ])
 
     return (
-        <div>
-            <RouterProvider router={appRouter} />
-        </div>
+        <RouterProvider router={appRouter} />
     )
 }
 

@@ -2,6 +2,8 @@ import React from 'react'
 import vectorResume from "../img/vectorResume.png";
 import AuthButtonProvider from './AuthButtonProvider';
 import {FaGoogle,FaGithub} from "react-icons/fa6"
+
+
 const Landingpage = () => {
     return (
         <div className='auth-section'>
@@ -12,6 +14,7 @@ const Landingpage = () => {
                     <div className='w-full lg:w-96 rounded-md p-2 flex flex-col items-center justify-start gap-6 '>
                         <AuthButtonProvider Icon={FaGoogle} label={"Signin with Google"} provider={"GoogleAuthProvider"}/>
                         <AuthButtonProvider Icon={FaGithub} label={"Signin with Github"} provider={"GitHubAuthProvider"}/>
+                        
                     </div>
                 </div>
                 <div className="lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0">
