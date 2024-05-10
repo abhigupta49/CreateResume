@@ -5,11 +5,14 @@ import Landingpage from './Landingpage';
 import Footer from './Footer'
 
 
+
 const Authentication = () => {
+    
     return (
         <div >
+            {/* <Middleheader /> */}
             <Landingpage />
-            <Footer />
+            
         </div>
     );
 }

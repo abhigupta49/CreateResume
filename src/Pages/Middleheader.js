@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import logo from "../img/logo.png";
+import React, { useState,useEffect } from 'react'
+
 const Middleheader = () => {
-    const [isScrolled,setIsScrolled] = useState(false)
-    useEffect(()=>{
-        const handleScroll = () =>{
-            const scrollTop = window.pageYOffset;
-            setIsScrolled(scrollTop>0)
-        }
+    const [isVisible, setIsVisible] = useState(true);
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
-        window.addEventListener('scroll',handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
+    useEffect(() => {
+        const handleScroll = () => {
+        const currentScrollPos = window.pageYOffset;
+        setIsVisible(prevScrollPos > currentScrollPos);
+        setPrevScrollPos(currentScrollPos);
         };
-    },[])
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [prevScrollPos]);
+
     return (
-        
-            <div className={`flex items-center justify-between px-4 lg:px-20 transition-opacity duration-500  ${isScrolled ? 'bg-gradient-to-t from-white via-white to-white fixed top-0 w-full z-10' : ''}`}>
-                <img className='w-16 lg:w-20' src={logo} alt='logo'/>
-                <button className='bg-black px-4 py-2 lg:px-6 lg:py-3 rounded-sm text-white'>Login</button>
+        <div className="bg-black">
+        <div className="container mx-auto py-4 lg:py-2">
+            <div className={`text-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h4 className="text-white text-sm lg:text-lg">
+                <span className="bg-yellow-400 text-black px-2 py-1 rounded-md">NEW!</span> Get hired faster with a resume review. See more details
+            </h4>
             </div>
-        
+        </div>
+        </div>
     );
 }
 

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataType from './dataSlice'
+import userStore from './dataSlice'
 const appStore = configureStore(
     {
         reducer:{
-            Data: dataType
+            Data: userStore
         }
     }
 )

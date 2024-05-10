@@ -1,8 +1,8 @@
 import React from 'react'
 import vectorResume from "../img/vectorResume.png";
 import AuthButtonProvider from './AuthButtonProvider';
-import {FaGoogle,FaGithub} from "react-icons/fa6"
 
+import { AuthButton } from '../utils/Contstant';
 
 const Landingpage = () => {
     return (
@@ -12,8 +12,8 @@ const Landingpage = () => {
                     <h1 className='font-bold text-3xl lg:text-5xl mt-2 leading-10 lg:leading-64 min-w-[280px] lg:min-w-[510px] max-w-[510px] text-center lg:text-left'>Job-Winning Resume Templates</h1>
                     <p className="max-w-[440px] text-lg lg:text-2xl mt-8 text-center lg:text-left" >Get the job 2x as fast. <sup>1</sup> Choose from dozens of recruiter-approved templates. Add ready-to-use skills and phrases to your template.</p>
                     <div className='w-full lg:w-96 rounded-md p-2 flex flex-col items-center justify-start gap-6 '>
-                        <AuthButtonProvider Icon={FaGoogle} label={"Signin with Google"} provider={"GoogleAuthProvider"}/>
-                        <AuthButtonProvider Icon={FaGithub} label={"Signin with Github"} provider={"GitHubAuthProvider"}/>
+                        <AuthButtonProvider authBtn={AuthButton}/>
+                        
                         
                     </div>
                 </div>

@@ -11,7 +11,7 @@ function App() {
     <Provider store={appStore}>
       <Suspense fallback={<div>Loading....</div>}>
           <Body />
-          <ToastContainer position='top-right' theme='dark'/>
+          <ToastContainer position='top-center' theme='dark'/>
       </Suspense>
       
     </Provider>

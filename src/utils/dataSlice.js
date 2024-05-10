@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const dataSlice = createSlice({
-    name: 'Test Data',
+    name: 'User Data',
     initialState:{
-        Testdata: null
+        userLoggedData: {loading:true,data:[]}
     },
     reducers:{
         addData : (state,action)=>{
-            state.Testdata = action.payload
+            state.userLoggedData = action.payload
         }
     }
 });
