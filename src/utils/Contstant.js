@@ -13,3 +13,26 @@ export const AuthButton = {
         provider: "GitHubAuthProvider"
     }
 }
+
+export const initialTags = [
+    "Software Engineer",
+    "Front-end Developer",
+    "Back-end Developer",
+    "Full-stack Developer",
+    "Mobile App Developer",
+    "Web Designer",
+    "UI/UX Designer",
+    "Product Manager",
+    "Data Scientist",
+    "Machine Learning Engineer",
+    "DevOps Engineer",
+    "Cloud Architect",
+    "QA Engineer",
+    "Game Developer",
+    "Embedded Systems Engineer",
+    "Cybersecurity Analyst",
+    "Network Engineer",
+    "Database Administrator",
+    "IT Consultant",
+    "System Administrator"
+];

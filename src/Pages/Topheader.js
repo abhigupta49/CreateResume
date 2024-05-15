@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaSignOutAlt } from "react-icons/fa";
 import { auth } from '../config/firebase.config';
 import { addData } from '../utils/dataSlice';
+import { adminIds } from '../Superusers/helpers';
 const Topheader = () => {
     const [isScrolled,setIsScrolled] = useState(false)
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -55,7 +56,11 @@ const Topheader = () => {
                         className="w-12 h-12 rounded-full cursor-pointer" style={{ display: 'block', margin: 'auto' }}/>):<CgProfile className='w-12 h-12 cursor-pointer rounded-md relative items-center justify-center'/>}
                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hi👋, {profileImg.data?.displayName}</li>
                         <Link to={"/profile"}><li className="px-4 py-2 font-bold hover:bg-gray-100 cursor-pointer">My Account</li></Link>
-                        <Link to={"/template/create"}><li className="px-4 py-2 font-bold hover:bg-gray-100 cursor-pointer">Add New Template</li></Link>
+                        {
+                            adminIds.includes(profileImg.data?.uid) && (
+                                <Link to={"/template/create"}><li className="px-4 py-2 font-bold hover:bg-gray-100 cursor-pointer">Add New Template</li></Link>
+                            )
+                        }
                         <div className='px-2 py-2 border-t border-gray-300 flex items-center group hover:bg-gray-100 text-txtLight justify-between cursor-pointer'>
                             <p onClick={signOutUser}>Sign out</p>
                             <FaSignOutAlt className='group-hover:text-txtDark text-txtLight'/>

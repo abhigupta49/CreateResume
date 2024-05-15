@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 import { auth, db } from '../config/firebase.config';
 import { addData } from '../utils/dataSlice';
 
-import { doc, onSnapshot, setDoc } from 'firebase/firestore';
+import {doc, onSnapshot, setDoc } from 'firebase/firestore';
+
 
 const useUser = () => {
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userCred) => {
@@ -41,5 +43,8 @@ const useUser = () => {
         return () => unsubscribe();
     }, [dispatch]); // Dependency array ensures the effect runs only once when component mounts
 };
+
+
+
 
 export default useUser;
