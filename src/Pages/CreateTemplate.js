@@ -245,12 +245,14 @@ const CreateTemplate =  () => {
                         <React.Fragment>
                             <div className='w-full h-full grid gird-cols-2 lg:grid-cols-2 2xl:grid-cols-2 gap-4'>
                                 {templates.templatesData.map((template)=>
-                                    <div key={template.id} className='w-full h-[500px] rounded-md overflow-hidden relative'>
-                                        <img src={template.imageURL} alt='' className='w-full h-full object-cover'/>
-                                        <div className='absolute top-4 right-4 w-8 h-8 rounded-md flex items-center justify-center bg-red-500 cursor-pointer' onClick={()=>removeTemplateData(template)}>
-                                            <FaTrash className='text-sm text-white'/>
+                                    <div key={template.id} className='w-[80%] h-[350px] 2xl:h-[400px] rounded-md bg-gray-200 overflow-hidden relative'>
+                                        <img src={template.imageURL} alt='uploaded template' className='w-full h-full object-contain' />
+                                        <div className='absolute top-4 right-4 w-8 h-8 rounded-md flex items-center justify-center bg-red-500 cursor-pointer' onClick={() => removeTemplateData(template)}>
+                                            <FaTrash className='text-sm text-white' />
                                         </div>
                                     </div>
+                                
+                                
                                 )}
                             </div>
                             

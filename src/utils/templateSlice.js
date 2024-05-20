@@ -7,15 +7,16 @@ const templateSlice = createSlice({
     },
     reducers:{
         addTemplate:(state,action)=>{
-            state.templates = action.payload;
+            state.templates = { ...action.payload };
         },
         removeTemplate:(state,action)=>{
             const idToRemove = action.payload;
             state.templates.templatesData = state.templates.templatesData.filter(template => template.id !== idToRemove )
             state.templates.Datalength -= 1;
-        }
+        },
+        
     }
 })
 
-export const {addTemplate,removeTemplate} = templateSlice.actions
+export const {addTemplate,removeTemplate,updateTemplate} = templateSlice.actions
 export default templateSlice.reducer

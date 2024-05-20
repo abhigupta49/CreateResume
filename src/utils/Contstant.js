@@ -1,5 +1,5 @@
 import {FaGoogle,FaGithub} from "react-icons/fa6"
-
+import {easeInOut} from 'framer-motion'
 export const AuthButton = {
     Google: {
         Icon: FaGoogle,
@@ -36,3 +36,27 @@ export const initialTags = [
     "IT Consultant",
     "System Administrator"
 ];
+
+export const transformedTags = initialTags.map((tag, index) => ({
+    id: index.toString(), // You can use index as id, but if you have unique ids for tags, use them instead
+    label: tag,
+    value: tag
+}));
+
+export const scaleInOut = (index) =>{
+    return{
+        initial:{opacity:0,scale:0.85},
+        animate:{opacity:1,scale:1},
+        exit:{opacity:0,scale:0.85}, 
+        transition:{delay:index * 0.3, ease: easeInOut}
+    }
+}
+
+export const FadeInOutMotion = () =>{
+    return{
+        initial:{opacity:0,scale:0.85},
+        animate:{opacity:1,scale:1},
+        exit:{opacity:0,scale:0.85}, 
+        transition:{ease: easeInOut}
+    }
+}

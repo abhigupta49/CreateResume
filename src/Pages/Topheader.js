@@ -49,7 +49,7 @@ const Topheader = () => {
                         onClick={toggleDropdown}
                     />):<CgProfile className='w-12 h-12 cursor-pointer rounded-md relative items-center justify-center' onClick={toggleDropdown} />}
                     {dropdownOpen && (
-                        <ul className="absolute right-0 mt-2 py-6 w-52 bg-white border rounded shadow-lg" onMouseLeave={()=>setDropdownOpen(false)}>
+                        <ul className="absolute right-0 mt-2 py-6 w-52 z-10 bg-white border rounded shadow-lg" onMouseLeave={()=>setDropdownOpen(false)}>
                         {profileImg.data?.photoURL ?(<img
                         src={profileImg.data.photoURL} // Replace with the path to your profile picture
                         alt="Profile"

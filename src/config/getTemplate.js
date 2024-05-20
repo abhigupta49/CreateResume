@@ -1,10 +1,13 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 import { db } from '../config/firebase.config';
+import { addTemplate } from '../utils/templateSlice';
 
-const getTemplates = () => {
+
+const getTemplates = (dispatch) => {
+    
     return new Promise((resolve, reject) => {
         const templateCollectionRef = collection(db, "templates");
-
+        
         getDocs(templateCollectionRef)
             .then((querySnapshot) => {
                 const templates = [];
@@ -18,6 +21,7 @@ const getTemplates = () => {
                     templates.push({ id: doc.id, ...modifiedData });
                 });
                 console.log("Templates:", templates);
+                dispatch(addTemplate({templatesData:templates,Datalength:templates.length}))
                 resolve(templates);
             })
             .catch((error) => {
@@ -26,5 +30,15 @@ const getTemplates = () => {
             });
     });
 };
+
+export const getTemplatesDetails = async (templateID) =>{
+    return new Promise((resolve,reject)=>{
+        const unsubscribe = onSnapshot(doc(db,"templates",templateID),(doc)=>{
+            resolve(doc.data())
+        })
+        
+        return unsubscribe;
+    })
+}
 
 export default getTemplates;
